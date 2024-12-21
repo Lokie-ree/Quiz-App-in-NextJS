@@ -1,10 +1,9 @@
 import localFont from "next/font/local";
 import "./globals.css";
-import { SpeedInsights } from "@vercel/speed-insights/next"
-import Header from "@/components/Header";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { PointsProvider } from "@/context/PointsContext";
-
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -29,11 +28,11 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <PointsProvider>
-          <Header />
+          <Navbar />
           <main className="min-h-screen">{children}</main>
           <SpeedInsights />
-          <Footer />
         </PointsProvider>
+        <Footer />
       </body>
     </html>
   );
